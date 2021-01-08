@@ -1,0 +1,80 @@
+
+DM테이블 
+create table directmessage(
+userid varchar (500),
+writer varchar(500),
+title varchar(500),
+message varchar(600),
+ rdate date default sysdate
+
+
+
+);
+
+어드민 공지 게시판 테이블 
+create sequence admin_seq;
+create table adminnotice(
+board_num number(4) primary key,
+ userid varchar2(500),
+ boardtopic varchar2(80),
+ board_comment varchar2(999),
+ rdate date default sysdate,
+  nClick number(4) default 0,
+   bGroup number(4),
+    bStep Number(4),
+    bIndent Number(4)
+
+
+
+);
+(신고 기능 테이블)
+create table report(
+userid varchar(500),
+boardtitle varchar(500),
+board_comment varchar(500),
+report_comment varchar(500)
+
+
+);
+
+insert into adminnotice(board_num,boardtopic,userid,board_comment,nClick,bGroup,bStep,bIndent)
+values(board_seq.nextval,' 2021년 기준 게시판 유지보수를 시작합니다. ','admin','안녕하세요 유저여러분들 저희 게시판을 이용해주셔서 감사합니다.. 2021년부터 새해를 맞아 게시판을 유지보수 하려고합니다.',0,board_seq.currval,0,0); 
+
+
+
+<!-- 게시판 테이블 —!>
+create table board(
+
+ board_num number(4) primary key,
+
+ userid varchar2(500),
+
+ boardtopic varchar2(80),
+
+ board_comment varchar2(999),
+
+ rdate date default sysdate,
+
+  nClick number(4) default 0,
+
+   bGroup number(4),
+
+    bStep Number(4),
+
+    bIndent Number(4)
+
+  
+
+ 
+
+);
+(더미데이터)
+insert into board(board_num,boardtopic,userid,board_comment,nClick,bGroup,bStep,bIndent)
+values(board_seq.nextval,'´Ô¾Æ ´Ô¾Æ..?','apple','helloworld',0,board_seq.currval,0,0);   
+
+
+
+
+create sequence board_seq;  
+
+
